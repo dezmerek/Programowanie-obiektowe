@@ -4,13 +4,17 @@ namespace lab_4
 {
     enum Degree
     {
-        A=50,
+        A = 50,
         B = 45,
         C = 40,
         D = 35,
         E = 30,
-        F = 25
+        F = 20,
+        G = 10
     }
+
+    record Student(string Name, int Ects, bool Egzamin);
+
     class Program
     {
         static void Main(string[] args)
@@ -32,7 +36,7 @@ namespace lab_4
                 Degree studentDegree = Enum.Parse<Degree>(str);
                 Console.WriteLine("Wpisałeś " + studentDegree);
             }
-            catch(ArgumentException e)
+            catch (ArgumentException e)
             {
                 Console.WriteLine("Wpisales nieznana ocene!");
             }
@@ -44,7 +48,46 @@ namespace lab_4
                 _ => 3.0
             };
             Console.WriteLine(ocena);
+            Student student = new Student("Karol", 12, true);
+            Console.WriteLine(student);
+            if (student == new Student("Karol", 13, true))
+            {
+                Console.WriteLine("Identyczni");
+            }
+            else
+            {
+                Console.WriteLine("Różni");
+            }
 
+            Student[] students =
+                {
+                new Student("Karol", 12, true),
+                new Student("Ewa", 12, false),
+                new Student("Robert", 12, true),
+                new Student("Ania", 12, false),
+        };
+
+            foreach(Student st in students)
+            {
+                Console.WriteLine(
+                    st.Name + 
+                    st switch
+                    {
+                        {Ects: >=17,Egzamin: true}=>"Zaliczył",
+                        _=>"Niezaliczyli"
+                    }
+                    );
+
+                //rownowzny kod
+                //if(st.Ects>=17&&st.Egzamin)
+                //{
+
+                //}
+                //else
+                //{
+
+                //}
+            }
         }
     }
 }
