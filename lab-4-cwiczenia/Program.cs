@@ -1,10 +1,41 @@
-﻿namespace lab_4_cwiczenia
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics.Tracing;
+using System.Drawing;
+using System.Linq;
+
+namespace lab_4_cwiczenia
 {
     class Program
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine("Zadanie1");
+            Console.WriteLine();
+            (int, int) point1 = (2, 4);
+            (int, int) size = (10, 12);
+            Direction4 dir = Direction4.UP;
+            var point2 = Exercise1.NextPoint(dir, point1, size);
+            Console.WriteLine(point2);
+            Console.WriteLine();
 
+            Console.WriteLine("Zadanie2");
+            Console.WriteLine();
+            Exercise2 exercise2 = new Exercise2();
+            Console.WriteLine(exercise2.Show());
+            Console.WriteLine();
+
+            Console.WriteLine("Zadanie3");
+            Console.WriteLine();
+            Console.WriteLine();
+
+            Console.WriteLine("Zadanie4");
+            Console.WriteLine();
+            Student[] students = {
+          new Student("Kowal","Adam", 'A'),
+          new Student("Nowak","Ewa", 'A')
+        };
+            Exercise4.AssignStudentId(students);
         }
     }
 
@@ -41,9 +72,22 @@
     //Jeśli nowe położenie jest poza ekranem to metoda powinna zwrócić krotkę z point
     class Exercise1
     {
-        public static (int, int) NextPoint(Direction4 direction, (int, int) point, (int, int) screenSize)
+        public static (int, int) NextPoint(Direction4 direction, (int, int) point, (int, int) screenSize = default((int, int)))
         {
-            throw new NotImplementedException();
+            if (point.Item1 > screenSize.Item1 || point.Item2 > screenSize.Item2)
+                return point;
+            if (point.Item1 <= 0 || point.Item2 <= 0)
+                return point;
+
+            switch (direction)
+            {
+                case Direction4.UP: return (point.Item1, point.Item2 - 1);
+                case Direction4.DOWN: return (point.Item1, point.Item2 + 1);
+                case Direction4.LEFT: return (point.Item1 - 1, point.Item2 - 1);
+                case Direction4.RIGHT: return (point.Item1 + 1, point.Item2 - 1);
+            }
+
+            return point;
         }
     }
     //Cwiczenie 2
@@ -73,9 +117,37 @@
 
         private Direction8 direction = DirectionTo(screen, point, 1);
 
+        public Direction8 Show()
+        {
+            return direction;
+        }
         public static Direction8 DirectionTo(int[,] screen, (int, int) point, int value)
         {
-            throw new NotImplementedException();
+            (int, int) new_point = point;
+            for (int i = 0; i < screen.GetLength(0); i++)
+            {
+                for (int j = 0; j < screen.GetLength(0); j++)
+                {
+                    if (screen[i, j] == value)
+                    {
+                        new_point = (i, j);
+                    }
+                }
+            }
+
+            (int, int) move_point = (new_point.Item1 - point.Item1, new_point.Item2 - point.Item2);
+            Direction8 direction8 = move_point switch
+            {
+                { Item1: < 0, Item2: 0 } => Direction8.LEFT,
+                { Item1: > 0, Item2: 0 } => Direction8.RIGHT,
+                { Item1: 0, Item2: < 0 } => Direction8.UP,
+                { Item1: 0, Item2: > 0 } => Direction8.DOWN,
+                { Item1: < 0, Item2: > 0 } => Direction8.DOWN_LEFT,
+                { Item1: < 0, Item2: < 0 } => Direction8.UP_LEFT,
+                { Item1: > 0, Item2: > 0 } => Direction8.DOWN_RIGHT,
+                { Item1: > 0, Item2: < 0 } => Direction8.UP_RIGHT,
+            };
+            return direction8;
         }
     }
 
@@ -100,7 +172,19 @@
     {
         public static int CarCounter(Car[] cars)
         {
-            throw new NotImplementedException();
+            var DicOfCars = new Dictionary<object, int>();
+            foreach (var item in cars)
+            {
+                if (DicOfCars.ContainsKey(item))
+                {
+                    DicOfCars[item]++;
+                }
+                else
+                {
+                    DicOfCars[item] = 1;
+                }
+            }
+            return DicOfCars.Values.Max();
         }
     }
 
@@ -122,7 +206,11 @@
     {
         public static void AssignStudentId(Student[] students)
         {
-
+            for (int i = 0; i < students.Length; i++)
+            {
+                students[i] = new Student(students[i].LastName, students[i].FirstName, students[i].Group, students[i].Group + (i + 1).ToString("000"));
+                Console.WriteLine($"{students[i].LastName} {students[i].FirstName} '{students[i].Group}' - '{students[i].StudentId}'");
+            }
         }
     }
 }
