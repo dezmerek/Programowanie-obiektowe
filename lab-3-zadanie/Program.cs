@@ -13,7 +13,6 @@ namespace lab_3_zadanie
             Console.WriteLine(Exercise2.getTuple1());
             int[] arr = { 2, 3, 4, 6 };
             Console.WriteLine(Exercise2.GetTuple2<int>(arr));
-            Console.WriteLine(Exercise3.getTuple3());
         }
     }
     //Ćwiczenie 1
