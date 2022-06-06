@@ -14,7 +14,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Net;
 using Newtonsoft.Json;
-using System.Globalization;
 
 namespace projekt
 {
@@ -34,7 +33,7 @@ namespace projekt
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?&q={0}&appid={1}", TBCity.Text, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}"+ "&lang=pl&appid=" + "{1}", TBCity.Text, APIKey);
                 var json = web.DownloadString(url);
 
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
