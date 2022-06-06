@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Net;
+using Newtonsoft.Json;
 
 namespace projekt
 {
@@ -25,9 +27,24 @@ namespace projekt
             InitializeComponent();
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
+        string APIKey = "f06f748cb174f38b78906946a08bab92";
 
+        void getWeather()
+        {
+            using (WebClient web = new WebClient())
+            {
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?q={0}"+"&appid="+"{1}", TBCity.Text, APIKey);
+                var json = web.DownloadString(url);
+
+                WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
+
+                labCondition.Text = Info.weather[0].description;
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            getWeather();
         }
     }
 }
