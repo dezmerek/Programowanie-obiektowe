@@ -40,6 +40,11 @@ namespace projekt
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
                 labCondition.Text = Info.weather[0].description;
+                labSunset.Text = Info.sys.sunset.ToString();
+                labSunrise.Text = Info.sys.sunrise.ToString();
+
+                labWindSpeed.Text = Info.wind.speed.ToString() + " m/s";
+                labPressure.Text = Info.main.pressure.ToString();
             }
         }
 
@@ -47,5 +52,6 @@ namespace projekt
         {
             getWeather();
         }
+
     }
 }

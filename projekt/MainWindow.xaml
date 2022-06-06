@@ -5,9 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:projekt"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        FontSize="16"
+        FontFamily ="./fonts/#Lato"
+        Title="Pogoda" Height="450" Width="800" Background="#FFEAEAEA">
+    
+
     <Grid>
-        <TextBox x:Name="TBCity" HorizontalAlignment="Left" Height="30" Margin="16,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" FontFamily="Tahoma">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="37*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#262930" Grid.ColumnSpan="2" ClipToBounds="True" Width="250" HorizontalAlignment="Left">
+        </Border>
+
+        <TextBox x:Name="TBCity" Padding="6" HorizontalAlignment="Left" Height="30" Margin="16,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" FontFamily="Tahoma" Grid.ColumnSpan="2">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -17,18 +30,21 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <TextBox x:Name="labCondition" HorizontalAlignment="Left" Height="30" Margin="15,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" FontFamily="Tahoma" BorderBrush="{x:Null}" IsEnabled="False"/>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="30" Margin="152,22,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click" FontFamily="Tahoma"/>
-        <Image Source="/img/rainy-day.png" HorizontalAlignment="Left" Height="64" Margin="85,76,0,0" VerticalAlignment="Top" Width="64"></Image>
-        <TextBox x:Name="labSunrise" HorizontalAlignment="Left" Height="30" Margin="52,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" FontFamily="Tahoma" BorderBrush="{x:Null}" IsEnabled="False"/>
-        <Image Margin="15,224,753,178" Source="/img/sunrise.png" Stretch="Fill" RenderTransformOrigin="-0.486,0.178"/>
-        <Image Margin="15,274,753,128" Source="/img/sunset.png" Stretch="Fill" RenderTransformOrigin="-0.486,0.178"/>
-        <Image Margin="15,326,753,76" Source="/img/pressure-gauge.png" Stretch="Fill" RenderTransformOrigin="-0.486,0.178"/>
+        <TextBlock x:Name="labCondition" HorizontalAlignment="Left" Height="30" Margin="15,154,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}"  IsEnabled="False" Grid.ColumnSpan="2" Foreground="White"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="30" Margin="92,22,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"  Grid.Column="1"/>
+        <TextBlock x:Name="labSunrise" HorizontalAlignment="Left" Height="30" Margin="52,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" IsEnabled="False" Grid.ColumnSpan="2" Foreground="White"/>
 
-        <TextBox x:Name="labSunset" HorizontalAlignment="Left" Height="30" Margin="52,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" FontFamily="Tahoma" BorderBrush="{x:Null}" IsEnabled="False"/>
-        <Image Margin="15,375,753,26" Source="/img/wind.png" Stretch="Fill" RenderTransformOrigin="-0.486,0.178"/>
-        <TextBox x:Name="labPressure" HorizontalAlignment="Left" Height="30" Margin="52,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" FontFamily="Tahoma" BorderBrush="{x:Null}" IsEnabled="False"/>
-        <TextBox x:Name="labWindSpeed" HorizontalAlignment="Left" Height="30" Margin="52,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" FontFamily="Tahoma" BorderBrush="{x:Null}" IsEnabled="False"/>
+        <Image Source="/img/rainy-day.png" HorizontalAlignment="Left" Height="64" Margin="10,78,0,0" VerticalAlignment="Top" Width="64" Grid.Column="1"></Image>
 
+        <Image Source="/img/sunrise.png" HorizontalAlignment="Left" Height="32" Margin="10,226,0,0" VerticalAlignment="Top" Width="32"></Image>
+        <Image Source="/img/sunset.png" HorizontalAlignment="Left" Height="32" Margin="10,276,0,0" VerticalAlignment="Top" Width="32"></Image>
+        <Image Source="/img/wind.png" HorizontalAlignment="Left" Height="32" Margin="10,373,0,0" VerticalAlignment="Top" Width="32" RenderTransformOrigin="-0.095,1.862"></Image>
+        <Image Source="/img/pressure.png" HorizontalAlignment="Left" Height="32" Margin="10,326,0,0" VerticalAlignment="Top" Width="32"></Image>
+
+        <TextBlock x:Name="labSunset" HorizontalAlignment="Left" Height="30" Margin="52,276,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" IsEnabled="False" Grid.ColumnSpan="2" Foreground="White"/>
+        <TextBlock x:Name="labPressure" HorizontalAlignment="Left" Height="30" Margin="52,328,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" Background="{x:Null}" IsEnabled="False" Grid.ColumnSpan="2" Foreground="White"/>
+        <TextBlock x:Name="labWindSpeed" Opacity="100" HorizontalAlignment="Left" Height="30" Margin="52,375,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"  IsEnabled="False" Grid.ColumnSpan="2" Foreground="White" Visibility="Visible"  Background="{x:Null}"/>
+
+        <Image Height="100" Width="100" Grid.Column="2" Grid.ColumnSpan="2" Margin="320,162,320,172" OpacityMask="#FFF50000" VerticalAlignment="Top" Visibility="Visible"/>
     </Grid>
 </Window>
