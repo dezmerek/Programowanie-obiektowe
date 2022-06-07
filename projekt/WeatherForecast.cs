@@ -11,6 +11,7 @@ namespace projekt
         public class temp
         {
             public double day { get; set; }
+            public double night { get; set; }
         }
 
         public class weather
@@ -25,6 +26,8 @@ namespace projekt
             public long dt { get; set; }
             public temp temp { get; set; }
             public List<weather> weather { get; set; }
+            public double uvi { get; set; }
+            public double moon_phase { get; set; }
         }
 
         public class ForecastInfo

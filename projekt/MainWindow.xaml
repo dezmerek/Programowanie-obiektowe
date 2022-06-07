@@ -12,14 +12,10 @@
 
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="37*"/>
-        </Grid.ColumnDefinitions>
         <Border
             CornerRadius="15" 
             Margin="10,78,10,15" 
-            Padding="20 5" Grid.ColumnSpan="2">
+            Padding="20 5" Grid.ColumnSpan="3">
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FF2A62FF"/>
@@ -31,7 +27,7 @@
             </Border.Effect>
         </Border>
 
-        <TextBox x:Name="TBCity" Padding="6" HorizontalAlignment="Left" Height="30" Margin="16,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" FontFamily="Tahoma" Grid.ColumnSpan="2" Text="kraków">
+        <TextBox x:Name="TBCity" Padding="6" HorizontalAlignment="Left" Height="30" Margin="16,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" RenderTransformOrigin="0.5,0.5" FontFamily="Tahoma" Grid.ColumnSpan="3" Text="kraków">
             <TextBox.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -41,63 +37,85 @@
                 </TransformGroup>
             </TextBox.RenderTransform>
         </TextBox>
-        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="30" Margin="92,22,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"  Grid.Column="1"/>
+        <Button x:Name="btnSearch" Content="Search" HorizontalAlignment="Left" Height="30" Margin="92,22,0,0" VerticalAlignment="Top" Width="80" Click="Button_Click"  Grid.Column="2"/>
 
         <!-- LEWA STRONA -->
-        <Image Source="/img/weather.png" Margin="42,165,668,177" Grid.ColumnSpan="2"/>
+        <Image Source="/img/weather.png" Margin="16,169,694,173"/>
 
-        <TextBlock x:Name="dateNow" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="40,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="dateNow" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="40,140,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.ColumnSpan="3"/>
 
-        <TextBlock x:Name="TBCityy" Opacity="100" FontSize="32" Text="n/a" HorizontalAlignment="Left" Margin="40,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="TBCityy" Opacity="100" FontSize="32" Text="n/a" HorizontalAlignment="Left" Margin="40,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.ColumnSpan="3"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="370,140,0,0" TextWrapping="Wrap" Text="High" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="Temp" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="334,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="383,140,0,0" TextWrapping="Wrap" Text="High" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="Temp" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="346,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" RenderTransformOrigin="0.43,0.284"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="265,224,0,0" TextWrapping="Wrap" Text="Sunset" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="labSunset" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="229,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="278,228,0,0" TextWrapping="Wrap" Text="Sunset" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="labSunset" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="246,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="265,140,0,0" TextWrapping="Wrap" Text="Sunris" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="labSunrise" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="229,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="283,140,0,0" TextWrapping="Wrap" Text="Sunris" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="labSunrise" Width="100" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="246,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" RenderTransformOrigin="1.878,0.613"/>
 
-        <TextBlock x:Name="labCondition" HorizontalAlignment="Left" Height="15" Margin="98,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontFamily="#LatoThink" Background="{x:Null}" IsEnabled="False" Grid.Column="1" FontSize="12"><Run Language="en-gb" Text="n/a"/><LineBreak/><Run Language="en-gb"/></TextBlock>
+        <TextBlock x:Name="labCondition" HorizontalAlignment="Left" Height="15" Margin="98,203,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130" FontFamily="#LatoThink" Background="{x:Null}" IsEnabled="False" Grid.Column="2" FontSize="12"><Run Language="en-gb" Text="n/a"/><LineBreak/><Run Language="en-gb"/></TextBlock>
+        <TextBlock x:Name="MainWeather0" HorizontalAlignment="Left" Margin="98,217,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
         <!-- KONIEC LEWA STRONA -->
 
         <!-- PRAWA STRONA -->
-        <TextBlock x:Name="TempMax" Opacity="100" FontSize="32" Text="n/a" HorizontalAlignment="Left" Margin="98,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock x:Name="TempMax" Opacity="100" FontSize="32" Text="n/a" HorizontalAlignment="Left" Margin="98,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="2" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="370,224,0,0" TextWrapping="Wrap" Text="Low" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="TempMin" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="334,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="385,228,0,0" TextWrapping="Wrap" Text="Low" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="TempMin" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="346,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="458,140,0,0" TextWrapping="Wrap" Text="Wind" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="labWindSpeed" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="422,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="482,140,0,0" TextWrapping="Wrap" Text="Wind" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="labWindSpeed" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="446,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="458,228,0,0" TextWrapping="Wrap" Text="Pressure" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="labPressure" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="422,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="474,228,0,0" TextWrapping="Wrap" Text="Pressure" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="labPressure" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="446,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="558,140,0,0" TextWrapping="Wrap" Text="Humidity" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="Humidity" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="522,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="572,140,0,0" TextWrapping="Wrap" Text="Humidity" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="0.31,-0.067"/>
+        <TextBlock x:Name="Humidity" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="546,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="558,228,0,0" TextWrapping="Wrap" Text="Feels Like" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.Column="1"/>
-        <TextBlock x:Name="FeelsLike" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="522,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" Grid.Column="1" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock HorizontalAlignment="Left" Margin="571,228,0,0" TextWrapping="Wrap" Text="Feels Like" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="FeelsLike" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="546,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="691,140,0,0" TextWrapping="Wrap" Text="UVI" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="uvi0" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="650,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="667,228,0,0" TextWrapping="Wrap" Text="Moon phase" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="moon_phase" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="650,200,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"  IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
         <!-- KONIEC PRAWA STRONA -->
 
         <!-- POCZATEK DOL -->
-        <TextBlock x:Name="labDT1" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="37,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.ColumnSpan="2"/>
-        <TextBlock x:Name="labMainWeather" HorizontalAlignment="Left" Margin="30,318,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="labDT1" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="30,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock x:Name="MainWeather1" HorizontalAlignment="Left" Margin="30,306,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempDay1" HorizontalAlignment="Left" Margin="30,343,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="14" FontFamily="#LatoThink" FontWeight="Bold" Width="60"/>
+        <TextBlock x:Name="tempNight1" HorizontalAlignment="Left" Margin="92,345,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" FontWeight="Bold" />
+        <TextBlock x:Name="WeatherDescription1" HorizontalAlignment="Left" Margin="30,320,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" />
 
+        <TextBlock x:Name="labDT2" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="185,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock x:Name="MainWeather2" HorizontalAlignment="Left" Margin="185,306,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempDay2" HorizontalAlignment="Left" FontWeight="Bold" Margin="185,343,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="14" Width="60" FontFamily="#LatoThink" RenderTransformOrigin="13.657,0.142" />
+        <TextBlock x:Name="tempNight2" HorizontalAlignment="Left" Margin="246,345,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-0.057,0.489" FontWeight="Bold" />
+        <TextBlock x:Name="WeatherDescription2" HorizontalAlignment="Left" Margin="185,320,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" />
 
-        <TextBlock x:Name="labDT2" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="70,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1"/>
+        <TextBlock x:Name="labDT3" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="334,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock x:Name="MainWeather3" HorizontalAlignment="Left" Margin="334,306,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempDay3" HorizontalAlignment="Left" Width="60" FontWeight="Bold" Margin="334,343,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="14" FontFamily="#LatoThink" />
+        <TextBlock x:Name="tempNight3" HorizontalAlignment="Left" Margin="396,345,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" FontWeight="Bold"/>
+        <TextBlock x:Name="WeatherDescription3" HorizontalAlignment="Left" Margin="334,320,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" />
 
-        <TextBlock x:Name="labDT3" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="190,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1"/>
+        <TextBlock x:Name="labDT4" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="494,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" RenderTransformOrigin="0.043,0.613"/>
+        <TextBlock x:Name="MainWeather4" HorizontalAlignment="Left" Margin="494,306,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-2.703,-1.317"/>
+        <TextBlock x:Name="tempDay4" HorizontalAlignment="Left" FontWeight="Bold" Width="60" Margin="494,343,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="14" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempNight4" HorizontalAlignment="Left" Margin="554,345,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="16.73,2.294" FontWeight="Bold"/>
+        <TextBlock x:Name="WeatherDescription4" HorizontalAlignment="Left" Margin="494,320,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" />
 
-        <TextBlock x:Name="labDT4" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="283,292,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1" RenderTransformOrigin="0.043,0.613"/>
-
-        <TextBlock x:Name="labDT5" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="384,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1"/>
-
-        <TextBlock x:Name="labDT6" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="499,288,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1"/>
-
-        <TextBlock x:Name="labDT7" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="612,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal" Grid.Column="1"/>
+        <TextBlock x:Name="labDT5" Opacity="100" Text="n/a" HorizontalAlignment="Left" Margin="649,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" IsEnabled="False" Foreground="White" Visibility="Visible"  Background="{x:Null}" FontFamily="Segoe UI" TextAlignment="Center" FontWeight="Normal"/>
+        <TextBlock x:Name="MainWeather5" HorizontalAlignment="Left" Margin="649,306,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempDay5" HorizontalAlignment="Left" FontWeight="Bold" Width="60" Margin="650,343,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="14" FontFamily="#LatoThink"/>
+        <TextBlock x:Name="tempNight5" HorizontalAlignment="Left" Margin="710,345,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="0.967,-1.317" FontWeight="Bold"/>
+        <TextBlock x:Name="WeatherDescription5" HorizontalAlignment="Left" Margin="649,320,0,0" TextWrapping="Wrap" Text="n/a" VerticalAlignment="Top" FontSize="12" FontFamily="#LatoThink" RenderTransformOrigin="-12.121,2.225" />
         <!-- KONIEC DOL -->
+
 
 
         <!-- AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA -->
@@ -106,13 +124,13 @@
                 Fill="Azure" 
                 HorizontalAlignment="Left"
                 Margin="243,116,0,178"
-                Width="2" Grid.Column="1"/>
+                Width="2" Grid.Column="2"/>
 
         <Rectangle 
                 Fill="Azure" 
                 HorizontalAlignment="Left"
-                Margin="344,-60,0,-188"
-                Width="2" Grid.Column="1" RenderTransformOrigin="0.5,0.5">
+                Margin="396,-60,0,-188"
+                Width="2" RenderTransformOrigin="0.5,0.5">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -122,5 +140,7 @@
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
+        <Image Source="/img/weather.png" Margin="16,169,694,173"/>
+
     </Grid>
 </Window>

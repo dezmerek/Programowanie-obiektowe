@@ -88,42 +88,47 @@ namespace projekt
                 
                 WeatherForecast.ForecastInfo forecastInfo = JsonConvert.DeserializeObject<WeatherForecast.ForecastInfo>(json);
 
-                //ForecastUC FUC;
-                //for (int i = 0; 1 < 8; i++)
-                //{
-                //    FUC = new ForecastUC();
-                //    FUC.labMainWeather.Text = forecastInfo.daily[i].weather[0].main;
-                //    FUC.labWeatherDescription.Text = forecastInfo.daily[i].weather[0].description;
-                //    FUC.labDT.Text = convertDateTime(forecastInfo.daily[i].dt).DayOfWeek.ToString();
+                MainWeather0.Text = forecastInfo.daily[0].weather[0].main;
+                uvi0.Text = forecastInfo.daily[0].uvi.ToString();
+                moon_phase.Text = forecastInfo.daily[0].moon_phase.ToString();
 
-                //    FLP.Controls.Add(FUC);
-                //}
-
-                
-                //labWeatherDescription.Text = forecastInfo.daily[1].weather[0].description;
+                WeatherDescription1.Text = forecastInfo.daily[1].weather[0].description;
                 labDT1.Text = convertDateTime(forecastInfo.daily[1].dt).ToShortDateString();
-                labMainWeather.Text = forecastInfo.daily[1].weather[0].main;
+                MainWeather1.Text = forecastInfo.daily[1].weather[0].main;
+                tempDay1.Text = forecastInfo.daily[1].temp.day.ToString() + "°C";
+                tempNight1.Text = forecastInfo.daily[1].temp.night.ToString() + "°C";
 
+                WeatherDescription2.Text = forecastInfo.daily[2].weather[0].description;
                 labDT2.Text = convertDateTime(forecastInfo.daily[2].dt).ToShortDateString();
+                MainWeather2.Text = forecastInfo.daily[2].weather[0].main;
+                tempDay2.Text = forecastInfo.daily[2].temp.day.ToString() + "°C";
+                tempNight2.Text = forecastInfo.daily[2].temp.night.ToString() + "°C";
 
-
+                WeatherDescription3.Text = forecastInfo.daily[3].weather[0].description;
                 labDT3.Text = convertDateTime(forecastInfo.daily[3].dt).ToShortDateString();
+                MainWeather3.Text = forecastInfo.daily[3].weather[0].main;
+                tempDay3.Text = forecastInfo.daily[3].temp.day.ToString() + "°C";
+                tempNight3.Text = forecastInfo.daily[3].temp.night.ToString() + "°C";
 
-
+                WeatherDescription4.Text = forecastInfo.daily[4].weather[0].description;
                 labDT4.Text = convertDateTime(forecastInfo.daily[4].dt).ToShortDateString();
+                MainWeather4.Text = forecastInfo.daily[4].weather[0].main;
+                tempDay4.Text =  forecastInfo.daily[4].temp.day.ToString() + "°C";
+                tempNight4.Text = forecastInfo.daily[4].temp.night.ToString() + "°C";
 
-
+                WeatherDescription5.Text = forecastInfo.daily[5].weather[0].description;
                 labDT5.Text = convertDateTime(forecastInfo.daily[5].dt).ToShortDateString();
-
-
-                labDT6.Text = convertDateTime(forecastInfo.daily[6].dt).ToShortDateString();
-
-
-                labDT7.Text = convertDateTime(forecastInfo.daily[7].dt).ToShortDateString();
+                MainWeather5.Text = forecastInfo.daily[5].weather[0].main;
+                tempDay5.Text = forecastInfo.daily[5].temp.day.ToString() + "°C";
+                tempNight5.Text = forecastInfo.daily[5].temp.night.ToString() + "°C";
 
                 //labWeatherDescription.Text = forecastInfo.weather[1].description;
             }
         }
 
+        private void TBCity_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
+        }
     }
 }
