@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace projekt
 {
-    internal class WeatherInfo
+   class WeatherInfo
     {
-        public class cord
-        {
-            public double lon { get; set; }
-            public double lat { get; set; }
-        }
-
         public class weather
         {
             public string main { get; set; }
             public string description { get; set; }
+        }
+        public class coord
+        {
+            public double lon { get; set; }
+            public double lat { get; set; }
         }
 
         public class main
@@ -42,6 +41,7 @@ namespace projekt
         {
             public List <weather> weather { get; set; }
             public main main { get; set; }
+            public coord coord{ get; set; }
             public wind wind { get; set; }
             public sys sys { get; set; }
         }
