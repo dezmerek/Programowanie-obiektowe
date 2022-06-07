@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Net;
 using Newtonsoft.Json;
 using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace projekt
 {
@@ -25,9 +26,18 @@ namespace projekt
         public MainWindow()
         {
             InitializeComponent();
+            getWeather();
+            getForcecast();
         }
 
         string APIKey = "f06f748cb174f38b78906946a08bab92";
+
+        //private void TextValidationTextBox(object sender, TextCompositionEventArgs e)
+        //{
+        //    Regex regex = new Regex("[^a-zA-Z]+");
+        //    e.Handled = regex.IsMatch(e.Text);
+        //}
+        //PreviewTextInput="TextValidationTextBox"
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -126,9 +136,6 @@ namespace projekt
             }
         }
 
-        private void TBCity_PreviewTextInput(object sender, TextCompositionEventArgs e)
-        {
 
-        }
     }
 }

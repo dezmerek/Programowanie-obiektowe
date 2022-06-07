@@ -8,6 +8,7 @@ namespace projekt
 {
    class WeatherInfo
     {
+
         public class weather
         {
             public string main { get; set; }
@@ -32,11 +33,6 @@ namespace projekt
         public class wind
         {
             public double speed { get; set; }
-        }
-
-        public class nameTown
-        {
-            public string name { get; set; }
         }
 
         public class sys
