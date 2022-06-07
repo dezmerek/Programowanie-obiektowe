@@ -52,6 +52,8 @@ namespace projekt
         {
             using (WebClient web = new WebClient())
             {
+                try
+                {
                 string url = string.Format("https://api.openweathermap.org/data/2.5/weather?&units=metric&q={0}&appid={1}", TBCity.Text, APIKey);
                 var json = web.DownloadString(url);
 
@@ -76,6 +78,11 @@ namespace projekt
 
                 lon = Info.coord.lon; 
                 lat = Info.coord.lat;
+                }
+                catch(Exception)
+                {
+                    TBCity.Text = "City Not Found";
+                }
             }
         }
 
@@ -135,7 +142,6 @@ namespace projekt
                 //labWeatherDescription.Text = forecastInfo.weather[1].description;
             }
         }
-
 
     }
 }
