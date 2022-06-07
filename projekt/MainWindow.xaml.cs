@@ -32,6 +32,7 @@ namespace projekt
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             getWeather();
+            getForcecast();
         }
 
         double lon;
@@ -41,17 +42,22 @@ namespace projekt
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?&q={0}&appid={1}", TBCity.Text, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/2.5/weather?&units=metric&q={0}&appid={1}", TBCity.Text, APIKey);
                 var json = web.DownloadString(url);
 
                 WeatherInfo.root Info = JsonConvert.DeserializeObject<WeatherInfo.root>(json);
 
                 labCondition.Text = Info.weather[0].description;
-                labSunset.Text = convertDateTime(Info.sys.sunset).ToShortTimeString();
-                labSunrise.Text = convertDateTime(Info.sys.sunrise).ToShortTimeString();
+                //labSunset.Text = convertDateTime(Info.sys.sunset).ToShortTimeString();
+                //labSunrise.Text = convertDateTime(Info.sys.sunrise).ToShortTimeString();
 
-                labWindSpeed.Text = Info.wind.speed.ToString() + " m/s";
-                labPressure.Text = Info.main.pressure.ToString();
+                Temp.Text = Info.main.temp.ToString() + "°C";
+                TempMax.Text = Info.main.temp_max.ToString() + "°C";
+                TempMin.Text = Info.main.temp_min.ToString() + "°C";
+                Humidity.Text = Info.main.humidity.ToString() + "%";
+                labWindSpeed.Text = Info.wind.speed.ToString() + "/kph";
+                labPressure.Text = Info.main.pressure.ToString() + " hPa";
+                FeelsLike.Text = Info.main.feels_like.ToString() + "°C";
 
                 lon = Info.coord.lon;
                 lat = Info.coord.lat;
@@ -72,10 +78,31 @@ namespace projekt
         {
             using (WebClient web = new WebClient())
             {
-                string url = string.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}" + "&lon=" + "{1}" + "&exclude=hourly,daily&appid={2}", lat, lon, APIKey);
+                string url = string.Format("https://api.openweathermap.org/data/2.5/onecall?lat={0}" + "&lon=" + "{1}" + "&exclude=current,minutely,hourly,alerts&appid={2}", lat, lon, APIKey);
                 var json = web.DownloadString(url);
                 
+                WeatherForecast.ForecastInfo forecastInfo = JsonConvert.DeserializeObject<WeatherForecast.ForecastInfo>(json);
 
+                //ForecastUC FUC;
+                //for (int i = 0; 1 < 8; i++)
+                //{
+                //    FUC = new ForecastUC();
+                //    FUC.labMainWeather.Text = forecastInfo.daily[i].weather[0].main;
+                //    FUC.labWeatherDescription.Text = forecastInfo.daily[i].weather[0].description;
+                //    FUC.labDT.Text = convertDateTime(forecastInfo.daily[i].dt).DayOfWeek.ToString();
+
+                //    FLP.Controls.Add(FUC);
+                //}
+
+                //labMainWeather.Text = forecastInfo.daily[1].weather[0].main;
+                //labWeatherDescription.Text = forecastInfo.daily[1].weather[0].description;
+                //labDT.Text = convertDateTime(forecastInfo.daily[1].dt).DayOfWeek.ToString();
+
+                string ImageUrl = "http://openweathermap.org/img/wn/" + forecastInfo.daily[1].weather[0].icon + ".png";
+                System.Net.WebRequest request = default(System.Net.WebRequest);
+                request = WebRequest.Create(ImageUrl);
+
+                //labWeatherDescription.Text = forecastInfo.weather[1].description;
             }
         }
 

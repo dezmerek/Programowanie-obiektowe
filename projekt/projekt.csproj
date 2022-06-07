@@ -58,6 +58,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WeatherForecast.cs" />
     <Compile Include="WeatherInfo.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -91,6 +92,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <Resource Include="fonts\Lato.ttf" />
+    <Resource Include="fonts\LatoThin.ttf" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -101,28 +103,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\rainy-day.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="sunrise.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="sunset.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\color.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\sunrise.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\sunset.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\pressure.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="img\wind.png" />
+    <Resource Include="img\weather.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

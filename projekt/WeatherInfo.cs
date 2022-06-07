@@ -24,11 +24,19 @@ namespace projekt
             public double temp { get; set; }
             public double pressure { get; set; }
             public double humidity { get; set; }
+            public double temp_min { get; set; }
+            public double temp_max { get; set; }
+            public double feels_like { get; set; }
         }
 
         public class wind
         {
             public double speed { get; set; }
+        }
+
+        public class nameTown
+        {
+            public string name { get; set; }
         }
 
         public class sys
